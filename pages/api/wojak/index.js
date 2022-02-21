@@ -1,4 +1,4 @@
-import generateSvg from "utils/generateSVG";
+import generateSvg from "utils/generateSvg";
 import axios from 'axios';
 
 export default async function handler(req, res) {
