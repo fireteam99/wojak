@@ -1,7 +1,4 @@
-import fs from "fs";
-const fsPromises = fs.promises;
-import path from "path";
-
+import axios from 'axios';
 import sample from "lodash.sample";
 
 import getConfig from "next/config";
@@ -46,13 +43,8 @@ function getWojakPublicPath(state) {
  */
 export default async function getWojak(state) {
   const wojakPublicPath = getWojakPublicPath(state);
-  const pathFromRoot = `./public/${wojakPublicPath}`;
-  const absolutePath = path.join(
-    serverRuntimeConfig.PROJECT_ROOT,
-    pathFromRoot
-  );
-  // convert image to base64
-  const image = await fsPromises.readFile(absolutePath);
+  const hostedUrl = `https://raw.githubusercontent.com/fireteam99/wojak/main/public${wojakPublicPath}`
+  const { data: image } = await axios.get(hostedUrl, { responseType: 'arraybuffer' });
   const base64 = Buffer.from(image, "binary").toString("base64");
   return base64;
 }

@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/wojak/index.js": {
-      "includeFiles": "_files/**"
-    }
-  }
-}
