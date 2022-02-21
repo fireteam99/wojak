@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/wojak.js": {
+      "includeFiles": "_files/**"
+    }
+  }
+}

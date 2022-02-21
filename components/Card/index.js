@@ -39,7 +39,7 @@ export default function Card({ value, wojak, wojakState, width, height }) {
             `}
           />
         </div>
-        <span>Pink Wojak Index: {value.toFixed(2)}</span>
+        <span>Wojak Index: {value.toFixed(2)}</span>
       </div>
     </foreignObject>
   );
