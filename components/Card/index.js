@@ -1,13 +1,11 @@
 import { css } from "@emotion/react";
 import { getTheme } from "utils/theme";
-import { getWojakStateFromPwi } from "utils/wojak/wojakState";
 import { shake } from "./animations";
 
 // animation: ${shake} .05s linear infinite;
 
 export default function Card({ value, wojak, wojakState, width, height }) {
   const { bg, color } = getTheme(wojakState);
-  console.log({ theme: getTheme(wojakState) });
   return (
     <foreignObject x="0" y="0" width={width} height={height}>
       <div
