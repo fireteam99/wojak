@@ -1,10 +1,9 @@
-import { css } from "@emotion/react";
-import getWojak from "utils/getWojak";
-import Image from 'next/image';
+import fs from 'fs';
 
-export default function Card({ wji, width, height }) {
-  const wojak = getWojak(wji);
-  console.log(wojak);
+import { css } from "@emotion/react";
+import getWojak from "utils/wojak/getWojak.js";
+
+export default function Card({ pwi, wojak, width, height }) {
   return (
     <foreignObject x="0" y="0" width={width} height={height}>
       <div
@@ -14,10 +13,14 @@ export default function Card({ wji, width, height }) {
           height: 100%;
           color: green;
           background-color: orange;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
         `}
       >
-        <img src={wojak} alt="wojak" width={150} height={150} />
-        WJI: {wji}
+        <img src={`data:image/png;base64,${wojak}`} alt="wojak" width={150} height={150} objectfit="cover" />
+        <span>pwi: {pwi}</span>
       </div>
     </foreignObject>
   );
