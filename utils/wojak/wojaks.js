@@ -19,12 +19,12 @@ export const neutralWojaks = [neutralClassic, neutralMcd];
 
 const pinkClassic = '/wojaks/pink/pink-classic.png';
 const pinkMask = '/wojaks/pink/pink-mask.png';
-const pinkMcd = '/wojaks/pink/pink-mcd.png';
-export const pinkWojaks = [pinkClassic, pinkMask, pinkMcd];
+export const pinkWojaks = [pinkClassic, pinkMask];
 
+const sadMcd = '/wojaks/sad/sad-mcd.png';
 const sadDabMcd = '/wojaks/sad/sad-dab-mcd.png';
 const sadMask = '/wojaks/sad/sad-mask.png';
-export const sadWojaks = [sadDabMcd, sadMask];
+export const sadWojaks = [sadMcd, sadDabMcd, sadMask];
 
 const worriedDefault = '/wojaks/worried/worried-1.png';
 const worriedMcd = '/wojaks/worried/worried-mcd.png';

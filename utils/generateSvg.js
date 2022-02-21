@@ -1,12 +1,14 @@
 import ReactDomServer from "react-dom/server";
 import Card from "components/Card";
 import getWojak from "./wojak/getWojak";
+import { getWojakStateFromPwi } from './wojak/wojakState';
 
 export default async function generateSvg(pwi) {
   const width = 250;
   const height = 250;
-  const wojak = await getWojak(pwi);
-  const svgBody = ReactDomServer.renderToStaticMarkup(<Card pwi={pwi} wojak={wojak} height={height} width={width} />);
+  const wojakState = getWojakStateFromPwi(pwi);
+  const wojak = await getWojak(wojakState);
+  const svgBody = ReactDomServer.renderToStaticMarkup(<Card value={pwi} wojakState={wojakState} wojak={wojak} height={height} width={width} />);
   return `<svg
     width="${width}"
     height="${height}"
