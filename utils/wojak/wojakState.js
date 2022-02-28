@@ -35,7 +35,7 @@ export const getWojakStateFromPwi = (pwi) => {
 };
 
 export const getWojakStateFromChange = (percent) => {
-  if (!percent || typeof percent !== "number") {
+  if (percent == null || typeof percent !== "number") {
     return WOJAK_STATE.ERROR;
   }
   if (percent >= 30) {

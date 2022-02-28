@@ -75,16 +75,16 @@ export default Ticker;
 
 function getSymbolFontSize(length) {
   if (length > 12) {
-    return "9pt";
+    return "8pt";
   }
   if (length > 11) {
-    return "9.5pt";
+    return "9pt";
   }
   if (length > 10) {
-    return "10pt";
+    return "9.5pt";
   }
   if (length > 9) {
-    return "11pt";
+    return "10.5pt";
   }
   if (length > 8) {
     return "12pt";
