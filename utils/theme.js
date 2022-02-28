@@ -24,11 +24,13 @@ export const getTheme = (state) => {
     case WOJAK_STATE.DARK: {
       return themes.dark;
     }
+    case WOJAK_STATE.SAD:
+    case WOJAK_STATE.WORRIED:
+
     case WOJAK_STATE.PINK: {
       return themes.red;
     }
-    case WOJAK_STATE.SAD:
-    case WOJAK_STATE.WORRIED:
+    case WOJAK_STATE.ERROR:
     case WOJAK_STATE.NEUTRAL: {
       return themes.default;
     }
@@ -37,7 +39,9 @@ export const getTheme = (state) => {
       return themes.green;
     }
     default: {
-      console.warn('Unrecognized wojak state passed to `getTheme`.')
+      console.warn(
+        `Unrecognized wojak state passed to \`getTheme\`: ${state}.`
+      );
       return themes.default;
     }
   }

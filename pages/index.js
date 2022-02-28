@@ -1,4 +1,4 @@
-import axios from 'axios';
+import bianance from 'apis/bianance';
 
 export default function Home({ tickerData }) {
   const longest = Math.max(...tickerData.map(data => data?.symbol?.length || 0));
@@ -15,7 +15,7 @@ export default function Home({ tickerData }) {
 export async function getServerSideProps(context) {
   let tickerData = null;
   try {
-    const { data } = await axios.get("https://api.binance.com/api/v3/ticker/24hr");
+    const { data } = await bianance.get("/v3/ticker/24hr");
     tickerData = data || [];
   } catch (err) {
     console.error("Error fetching ticker data on home page.");
