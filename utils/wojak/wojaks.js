@@ -30,3 +30,6 @@ const worriedDefault = '/wojaks/worried/worried-1.png';
 const worriedMcd = '/wojaks/worried/worried-mcd.png';
 const worriedSweat = '/wojaks/worried/worried-sweat.png';
 export const worriedWojaks = [worriedDefault, worriedMcd, worriedSweat];
+
+const errorDefault = '/wojaks/error/error-default.png'
+export const errorWojaks = [errorDefault];

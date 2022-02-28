@@ -12,6 +12,7 @@ import {
   pinkWojaks,
   sadWojaks,
   worriedWojaks,
+  errorWojaks
 } from "./wojaks";
 import { WOJAK_STATE } from "./wojakState";
 
@@ -31,8 +32,10 @@ function getWojakPublicPath(state) {
       return sample(happyWojaks);
     case WOJAK_STATE.GREEN:
       return sample(greenWojaks);
+    case WOJAK_STATE.ERROR:
+      return sample(errorWojaks)
     default:
-      return sample(neutralWojaks);
+      return sample(errorWojaks);
   }
 }
 

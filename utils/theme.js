@@ -20,7 +20,6 @@ export const themes = {
 };
 
 export const getTheme = (state) => {
-  console.log({state})
   switch (state) {
     case WOJAK_STATE.DARK: {
       return themes.dark;
