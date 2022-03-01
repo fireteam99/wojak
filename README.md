@@ -5,7 +5,7 @@
       <img src="https://wojak-topaz.vercel.app/api/wojak?symbol=SOLUSDT" />
     </a>
   </p>
-  <h3 align="center">Wojak</h3>
+  <h2 align="center">Wojak</h2>
   <p align="center">
     Dynamically generated Wojaks based on the crypto market.
     <br />
@@ -41,7 +41,7 @@ You can also base your Wojak's state off of a crypto ticker symbol via the `symb
 ![Wojak Index](https://wojak-topaz.vercel.app/api/wojak?symbol=BTCUSDT)
 
 ## Getting Started
-Instructions on getting a local copy running and deployed on [Vercel](https://vercel.com/.
+Instructions on getting a local copy running and deployed on [Vercel](https://vercel.com/).
 
 ### Prerequisites
 Make sure you have at least the minimum supported version of Node.js for [Next.js](https://nextjs.org/docs).
@@ -55,6 +55,9 @@ Make sure you have at least the minimum supported version of Node.js for [Next.j
 2. Check build: `npm start`
 3. Deploy to staging: `npm run deploy`
 4. Deploy to prod: `npm run deploy:prod`
+
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffireteam99%2Fwojak)
 
 ## Roadmap
 - [ ] Store image locally
