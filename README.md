@@ -72,7 +72,7 @@ Make sure you have at least the minimum supported version of Node.js for [Next.j
 Pull requests and suggestions are welcome!
 
 ## License
-Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See LICENSE.txt for more information.
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See [LICENSE.md](https://github.com/fireteam99/wojak/blob/main/LICENSE.md) for more information.
 
 ## Acknowledgments
 Speical thanks to the author of https://www.wojakindex.biz/ and [Bizonacci](https://www.youtube.com/c/Bizonacci/videos).
