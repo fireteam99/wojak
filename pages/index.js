@@ -3,6 +3,7 @@ import {
   Code,
   Container,
   VStack,
+  HStack,
   Alert,
   AlertIcon,
   Tag,
@@ -10,8 +11,12 @@ import {
   Text,
   Center,
   SimpleGrid,
-  Box,
+  InputGroup,
   Input,
+  InputRightElement,
+  Button,
+  Kbd,
+  Box,
 } from "@chakra-ui/react";
 import Fuse from "fuse.js";
 
@@ -19,29 +24,13 @@ import bianance from "apis/bianance";
 
 export default function Home({ tickerSymbols }) {
   const [search, setSearch] = useState("");
-  const [filterdSymbols, setFilteredSymbols] = useState(tickerSymbols);
+  const [filterdSymbols, setFilteredSymbols] = useState([]);
   const fuse = new Fuse(tickerSymbols);
 
-  useEffect(() => {
+  const handleSearch = () => {
     const results = fuse.search(search);
     setFilteredSymbols(results.map((x) => x.item));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
-
-  const SymbolGrid = memo(
-    function SymbolGrid({ symbols }) {
-      return (
-        <SimpleGrid width="100%" minChildWidth="7em" spacing="1em">
-          {symbols.map((symbol) => (
-            <Center key={symbol}>
-              <Tag>{symbol}</Tag>
-            </Center>
-          ))}
-        </SimpleGrid>
-      );
-    },
-    [filterdSymbols]
-  );
+  };
 
   return (
     <VStack>
@@ -56,23 +45,39 @@ export default function Home({ tickerSymbols }) {
           <VStack spacing="2em">
             <Heading>Ticker Symbols</Heading>
             <Text>
-              A list of availible ticker symbols from Binance API's price change
+              A list of availible ticker symbols from Binance API&apos;s price change
               statistics. Use them in conjunction with the <Code>symbol</Code>{" "}
-              query string. Example: <Code>.../wojak?symbol=BTCUSDT</Code>
+              query string. Example: <Code>.../wojak?symbol=BTCUSDT</Code>.
             </Text>
-            <Input
-              onKeyPress={(e) => e.key === "Enter" && setSearch(e.target.value)}
-              htmlSize={4}
-              width="100%"
-              placeholder="Filter symbols..."
-            />
+            <InputGroup width="100%">
+              <Input
+                onChange={(e) => setSearch(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+                htmlSize={4}
+                placeholder="Search symbols..."
+              />
+              <InputRightElement width="4.5rem">
+                <Button size="md" onClick={() => handleSearch(search)}>
+                  Search
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+
             {tickerSymbols == null ? (
               <Alert status="error">
                 <AlertIcon />
                 There was an error fetching the ticker symbols.
               </Alert>
             ) : filterdSymbols.length == 0 ? (
-              <Center>No results...</Center>
+              <VStack>
+                <HStack>
+                  <Text>Press</Text>
+                  <Kbd>Enter</Kbd> <Text>to search.</Text>
+                </HStack>
+                <Heading as="h3" size="lg" color="gray.500">
+                  No results...
+                </Heading>
+              </VStack>
             ) : (
               <SymbolGrid symbols={filterdSymbols} />
             )}
@@ -82,6 +87,18 @@ export default function Home({ tickerSymbols }) {
     </VStack>
   );
 }
+
+const SymbolGrid = memo(function SymbolGrid({ symbols }) {
+  return (
+    <SimpleGrid width="100%" minChildWidth="7em" spacing="1em">
+      {symbols.map((symbol) => (
+        <Center key={symbol}>
+          <Tag>{symbol}</Tag>
+        </Center>
+      ))}
+    </SimpleGrid>
+  );
+});
 
 export async function getServerSideProps(context) {
   let tickerSymbols = null;
