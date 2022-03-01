@@ -41,7 +41,7 @@ You can also base your Wojak's state off of a crypto ticker symbol via the `symb
 ![Wojak Index](https://wojak-topaz.vercel.app/api/wojak?symbol=BTCUSDT)
 
 ## Getting Started
-Instructions on getting a local copy running and deployed on [Vercel](https://vercel.com/.
+Instructions on getting a local copy running and deployed on [Vercel](https://vercel.com/).
 
 ### Prerequisites
 Make sure you have at least the minimum supported version of Node.js for [Next.js](https://nextjs.org/docs).
