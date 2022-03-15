@@ -28,7 +28,7 @@
 Simply paste the corresponding url into your README.md or any other markdown file. 
 
 ### Wojak Index (default)
-The [Wojak Index](https://www.wojakindex.biz/) represents the percentage of pink Wojaks posted on 4chan's /biz/ catalog at a given moment scaled from 0 (no pink Wojaks) to 1000 (all pink Wojaks). To support the author and view more information, checkout https://www.wojakindex.biz.
+The [Wojak Index](https://www.wojakindex.biz/) represents the percentage of pink Wojaks posted on 4chan's /biz/ catalog at a given moment scaled from 0 (no pink Wojaks) to 1000 (all pink Wojaks). To support the author and view more information, checkout https://www.wojakindex.biz. (Seems to go down sometimes)
 ```
 ![Wojak Index](https://wojak-topaz.vercel.app/api/wojak)
 ```
