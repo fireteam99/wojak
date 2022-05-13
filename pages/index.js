@@ -1,4 +1,4 @@
-import { useState, memo, useEffect } from "react";
+import { useState, memo } from "react";
 import {
   Code,
   Container,
@@ -16,8 +16,9 @@ import {
   InputRightElement,
   Button,
   Kbd,
-  Box,
+  Link,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
 import Fuse from "fuse.js";
 
 import bianance from "apis/bianance";
@@ -37,7 +38,7 @@ export default function Home({ tickerSymbols }) {
       <Alert status="info">
         <AlertIcon />
         <span>
-          You are probably looking for the <Code>/api/wojak</Code> endpoint.
+          You might be looking for the <Code>/api/wojak</Code> endpoint.
         </span>
       </Alert>
       <Container maxW="container.md" pt="1em">
@@ -45,9 +46,10 @@ export default function Home({ tickerSymbols }) {
           <VStack spacing="2em">
             <Heading>Ticker Symbols</Heading>
             <Text>
-              A list of availible ticker symbols from Binance API&apos;s price change
-              statistics. Use them in conjunction with the <Code>symbol</Code>{" "}
-              query string. Example: <Code>.../wojak?symbol=BTCUSDT</Code>.
+              A list of available ticker symbols from Binance API&apos;s price
+              change statistics. Use them in conjunction with the{" "}
+              <Code>symbol</Code> query string. Example:{" "}
+              <Code>.../api/wojak?symbol=BTCUSDT</Code>.
             </Text>
             <InputGroup width="100%">
               <Input
@@ -92,7 +94,13 @@ const SymbolGrid = memo(function SymbolGrid({ symbols }) {
     <SimpleGrid width="100%" minChildWidth="7em" spacing="1em">
       {symbols.map((symbol) => (
         <Center key={symbol}>
-          <Tag>{symbol}</Tag>
+          <Tag _hover={{ bg: 'blue.800', color: 'gray.100', transform: "scale(1.2)", transition: '.15s ease-in-out' }}>
+            <Link as={NextLink} href={`/api/wojak?symbol=${symbol}`} passHref>
+              <a target="_blank" rel="noopener noreferrer">
+                {symbol}
+              </a>
+            </Link>
+          </Tag>
         </Center>
       ))}
     </SimpleGrid>
