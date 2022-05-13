@@ -1,9 +1,6 @@
 import axios from 'axios';
 import sample from "lodash.sample";
 
-import getConfig from "next/config";
-const { serverRuntimeConfig } = getConfig();
-
 import {
   darkWojaks,
   greenWojaks,
@@ -16,7 +13,7 @@ import {
 } from "./wojaks";
 import { WOJAK_STATE } from "./wojakState";
 
-function getWojakPublicPath(state) {
+export default function getWojak(state) {
   switch (state) {
     case WOJAK_STATE.DARK:
       return sample(darkWojaks);
@@ -37,17 +34,4 @@ function getWojakPublicPath(state) {
     default:
       return sample(errorWojaks);
   }
-}
-
-/**
- *
- * @param {Enum} state - WOJAK_STATE enum
- * @returns Base64 encoded Wojak
- */
-export default async function getWojak(state) {
-  const wojakPublicPath = getWojakPublicPath(state);
-  const hostedUrl = `https://raw.githubusercontent.com/fireteam99/wojak/main/public${wojakPublicPath}`
-  const { data: image } = await axios.get(hostedUrl, { responseType: 'arraybuffer' });
-  const base64 = Buffer.from(image, "binary").toString("base64");
-  return base64;
 }

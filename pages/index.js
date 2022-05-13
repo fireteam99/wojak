@@ -53,7 +53,6 @@ export default function Home({ tickerSymbols }) {
               <Input
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSearch()}
-                htmlSize={4}
                 placeholder="Search symbols..."
               />
               <InputRightElement width="4.5rem">

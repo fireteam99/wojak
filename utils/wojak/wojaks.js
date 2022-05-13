@@ -1,35 +1,35 @@
-const darkClassic = '/wojaks/dark/dark-classic.png';
-const darkDark = '/wojaks/dark/dark-dark.png'
+import darkClassic from '../../public/wojaks/dark/dark-classic';
+import darkDark from '../../public/wojaks/dark/dark-dark'
 export const darkWojaks = [darkClassic, darkDark];
 
-const greenCash = '/wojaks/green/green-cash.png';
-const greenGlow = '/wojaks/green/green-glow.png';
-const greenOverwhelmed = '/wojaks/green/green-overwhelmed.png';
+import greenCash from '../../public/wojaks/green/green-cash';
+import greenGlow from '../../public/wojaks/green/green-glow';
+import greenOverwhelmed from '../../public/wojaks/green/green-overwhelmed';
 export const greenWojaks = [greenCash, greenGlow, greenOverwhelmed];
 
-const happyGrinning = '/wojaks/happy/happy-grinning.png';
-const happySmile = '/wojaks/happy/happy-smile.png';
-const happySmug = '/wojaks/happy/happy-smug.png';
-const happyThinking = '/wojaks/happy/happy-thinking.png';
+import happyGrinning from '../../public/wojaks/happy/happy-grinning';
+import happySmile from '../../public/wojaks/happy/happy-smile';
+import happySmug from '../../public/wojaks/happy/happy-smug';
+import happyThinking from '../../public/wojaks/happy/happy-thinking';
 export const happyWojaks = [happyGrinning, happySmile, happySmug, happyThinking];
 
-const neutralClassic = '/wojaks/neutral/neutral-classic.png';
-const neutralMcd = '/wojaks/neutral/neutral-mcd.png';
+import neutralClassic from '../../public/wojaks/neutral/neutral-classic';
+import neutralMcd from '../../public/wojaks/neutral/neutral-mcd';
 export const neutralWojaks = [neutralClassic, neutralMcd];
 
-const pinkClassic = '/wojaks/pink/pink-classic.png';
-const pinkMask = '/wojaks/pink/pink-mask.png';
+import pinkClassic from '../../public/wojaks/pink/pink-classic';
+import pinkMask from '../../public/wojaks/pink/pink-mask';
 export const pinkWojaks = [pinkClassic, pinkMask];
 
-const sadMcd = '/wojaks/sad/sad-mcd.png';
-const sadDabMcd = '/wojaks/sad/sad-dab-mcd.png';
-const sadMask = '/wojaks/sad/sad-mask.png';
+import sadMcd from '../../public/wojaks/sad/sad-mcd';
+import sadDabMcd from '../../public/wojaks/sad/sad-dab-mcd';
+import sadMask from '../../public/wojaks/sad/sad-mask';
 export const sadWojaks = [sadMcd, sadDabMcd, sadMask];
 
-const worriedDefault = '/wojaks/worried/worried-1.png';
-const worriedMcd = '/wojaks/worried/worried-mcd.png';
-const worriedSweat = '/wojaks/worried/worried-sweat.png';
+import worriedDefault from '../../public/wojaks/worried/worried-1';
+import worriedMcd from '../../public/wojaks/worried/worried-mcd';
+import worriedSweat from '../../public/wojaks/worried/worried-sweat';
 export const worriedWojaks = [worriedDefault, worriedMcd, worriedSweat];
 
-const errorDefault = '/wojaks/error/error-default.png'
+import errorDefault from '../../public/wojaks/error/error-default'
 export const errorWojaks = [errorDefault];

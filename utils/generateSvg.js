@@ -15,7 +15,7 @@ export default async function generateSvg({ pwi, tickerData, error, showTicker }
     : showTicker
     ? getWojakStateFromChange(tickerData.priceChangePercent)
     : getWojakStateFromPwi(pwi);
-  const wojak = await getWojak(wojakState);
+  const wojak = getWojak(wojakState);
   const svgBody = ReactDomServer.renderToStaticMarkup(
     <Card
       showTicker={showTicker}
