@@ -17,15 +17,40 @@ import {
   Button,
   Kbd,
   Link,
+  Spacer,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
+import Image from "next/image";
 import Fuse from "fuse.js";
+import errorWojak from '../public/wojaks/error/error-default.png';
 
 import bianance from "apis/bianance";
 
 export default function Home({ tickerSymbols }) {
   const [search, setSearch] = useState("");
   const [filterdSymbols, setFilteredSymbols] = useState([]);
+
+  if (!tickerSymbols) {
+    console.error(
+      `There was an error with the Binance API. Please check: ${bianance.defaults.baseURL}`
+    );
+    return (
+      <Center mt="10em">
+        <VStack>
+          <Heading>Uh oh, there was an issue with the Binance API</Heading>
+          <Text>
+            Please check{" "}
+            <Link color="teal" href={bianance.defaults.baseURL} isExternal>
+              {bianance.defaults.baseURL}
+            </Link>
+          </Text>
+          <Spacer />
+          <Image width={200} height={200} src={errorWojak} alt="Errored out Wojak" />
+        </VStack>
+      </Center>
+    );
+  }
+
   const fuse = new Fuse(tickerSymbols);
 
   const handleSearch = () => {
@@ -55,7 +80,7 @@ export default function Home({ tickerSymbols }) {
               <Input
                 onChange={(e) => setSearch(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSearch()}
-                placeholder="Search symbols..."
+                placeholder="Search symbols... ex: BTC"
               />
               <InputRightElement width="4.5rem">
                 <Button size="md" onClick={() => handleSearch(search)}>
@@ -94,7 +119,14 @@ const SymbolGrid = memo(function SymbolGrid({ symbols }) {
     <SimpleGrid width="100%" minChildWidth="7em" spacing="1em">
       {symbols.map((symbol) => (
         <Center key={symbol}>
-          <Tag _hover={{ bg: 'blue.800', color: 'gray.100', transform: "scale(1.2)", transition: '.15s ease-in-out' }}>
+          <Tag
+            _hover={{
+              bg: "blue.800",
+              color: "gray.100",
+              transform: "scale(1.2)",
+              transition: ".15s ease-in-out",
+            }}
+          >
             <Link as={NextLink} href={`/api/wojak?symbol=${symbol}`} passHref>
               <a target="_blank" rel="noopener noreferrer">
                 {symbol}
